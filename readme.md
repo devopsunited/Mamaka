@@ -5,6 +5,6 @@ team :
 -kdij
 -Manu
 
-<img src="mamakaWorkd.png"
+<img src="./mamakaWork.png"
      alt="work flow"
      style="float: left; margin-right: 10px;" />
