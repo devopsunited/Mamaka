@@ -2,5 +2,9 @@ Mamaka
 
 team :
 -Max
-kdij
-Manu
+-kdij
+-Manu
+
+<img src="mamakaWorkd.png"
+     alt="work flow"
+     style="float: left; margin-right: 10px;" />
