@@ -1,0 +1,62 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.1.0
+
+jobs:
+  building_boiler:
+    executor: node/default
+    # docker:
+    #   - image: circleci/node@4.1.0
+    #     auth:
+    #       username: mydockerhub-user
+    #       password: $DOCKERHUB_PASSWORD
+    steps:
+      - checkout
+      # - node/install-packages:
+      #     app-dir: boiler
+      #     with-cache: true
+      #     override-ci-command: npm install
+      - run: |
+          cd boiler
+          npm install
+      - restore_cache:
+          keys:
+            - v1-npm-deps-{{ checksum "boiler/package-lock.json" }}
+      - run: |
+          cd boiler
+          npm run build
+          ls
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-npm-deps-{{ checksum "boiler/package-lock.json" }}
+
+      - persist_to_workspace:
+          root: boiler/dist
+          paths:
+            - .
+
+  building_image:
+    machine:
+      image: ubuntu-2004:202010-01
+    steps:
+      - checkout
+      - attach_workspace:
+          at: boiler/dist
+      - run: |
+          cd nginx
+          mkdir dist
+          cp ~/project/boiler/dist/* dist
+          docker build . -t 9420077500/mamaka-webpage
+          echo $DOCKER_PASSWD | docker login -u $DOCKER_USER --password-stdin
+          docker push 9420077500/mamaka-webpage
+
+workflows:
+  version: 2.1
+  buildCode_buildImage:
+    jobs:
+      - building_boiler
+      - building_image:
+          requires:
+            - building_boiler
