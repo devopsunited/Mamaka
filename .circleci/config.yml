@@ -55,7 +55,7 @@ jobs:
     
   deploy_to_gke:
     docker:
-      - image: google/cloud-sdk@sha256:126a49cfa2aa6e20d561fa14999bf657bc341efeba04939bd2f612bf843d12a6
+      - image: google/cloud-sdk:328.0.0 
     steps:
       - checkout
       - setup_remote_docker
