@@ -18,11 +18,11 @@ spec:
     selector:  # select all pod(s) containing the label: app:mamaka-webpage
         matchLabels:
             app: mamaka-webpage
-        template:
-            metadata:
-                labels: # give the pod(s) a label: app:mamaka-webpage
-                    app: mamaka-webpage
-                spec:
-                    containers:
-                        - name: mamaka-webpage
-                          image: 9420077500/mamaka-webpage:latest # you can also remove the image-tag
+    template:
+        metadata:
+            labels: # give the pod(s) a label: app:mamaka-webpage
+                app: mamaka-webpage
+        spec:
+            containers:
+                - name: mamaka-webpage
+                image: 9420077500/mamaka-webpage:latest # you can also remove the image-tag
