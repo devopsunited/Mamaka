@@ -1,0 +1,28 @@
+# with a K8s deployment:
+    # you can set a number of replicas
+    # you can update your app, it will remove old pod(s) automatically
+    #
+    # USEFUL K8s COMMANDS
+    # kubectl get deployments
+    # kubectl describe deployment mamaka-depl
+    # kubectl apply -f ./k8s-mamaka-depl.yaml
+    # kubectl delete deployment mamaka-depl 
+    # kubectl rollout restart deployment mamaka-depl
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: mamaka-depl
+spec:
+    replicas: 1
+    selector:  # select all pod(s) containing the label: app:mamaka-webpage
+        matchLabels:
+            app: mamaka-webpage
+        template:
+            metadata:
+                labels: # give the pod(s) a label: app:mamaka-webpage
+                    app: mamaka-webpage
+                spec:
+                    containers:
+                        - name: mamaka-webpage
+                          image: 9420077500/mamaka-webpage:latest # you can also remove the image-tag

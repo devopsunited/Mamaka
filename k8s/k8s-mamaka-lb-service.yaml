@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mamaka-lb-service
+spec:
+  selector:
+    app: mamaka-webpage
+  ports:
+    - port: 80
+      targetPort: 80
+  type: LoadBalancer
