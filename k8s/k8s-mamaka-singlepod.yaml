@@ -5,4 +5,4 @@ metadata:
 spec:
   containers:
     -name: mamaka-webpage
-    image: 9420077500/test:titi
+    image: 9420077500/mamaka-webpage
