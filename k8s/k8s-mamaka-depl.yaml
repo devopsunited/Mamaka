@@ -25,4 +25,4 @@ spec:
         spec:
             containers:
                 - name: mamaka-webpage
-                image: 9420077500/mamaka-webpage:latest # you can also remove the image-tag
+                  image: 9420077500/mamaka-webpage:latest # you can also remove the image-tag
