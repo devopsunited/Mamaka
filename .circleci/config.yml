@@ -59,7 +59,7 @@ jobs:
     steps:
       - checkout
       # - setup_remote_docker
-      - command: sh script/deploy.sh
+      - commands: sh script/deploy.sh
           
           
 workflows:
