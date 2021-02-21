@@ -1,4 +1,4 @@
-#!bin/bash
+#!bin/sh
 
 echo $GCLOUD_SERVICE_KEY > ./key_file.json
 gcloud auth activate-service-account --key-file=key_file.json
