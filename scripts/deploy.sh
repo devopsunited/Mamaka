@@ -11,8 +11,8 @@ echo $TEST
 echo $GOOGLE_CLUSTER_NAME
 echo "cluster exist ? ${CLUSTER_EXIST}"
 if [ "${CLUSTER_EXIST}" != $GOOGLE_CLUSTER_NAME ] ;then 
-
-   gcloud container cluster create hellocluster
+    
+   gcloud container clusters create hellocluster
 
 else
     echo "cluster is present or condition not exist failed"
