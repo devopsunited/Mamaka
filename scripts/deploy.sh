@@ -6,12 +6,15 @@ gcloud auth activate-service-account --key-file=key_file.json
 gcloud config set core/project $GOOGLE_PROJECT_ID 
 gcloud config set compute/zone $GOOGLE_COMPUTE_ZONE
 CLUSTER_EXIST = gcloud container cluster list $(gcloud container clusters list --format="value(name)" --filter="name=$GOOGLE_CLUSTER_NAME")
+TEST="TOTO"
+echo $TEST
+echo $GOOGLE_CLUSTER_NAME
+echo "${CLUSTER_EXIST}"
+if [ "${CLUSTER_EXIST}" != $GOOGLE_CLUSTER_NAME] ;then 
 
-if [ $CLUSTER_EXIST != $GOOGLE_CLUSTER_NAME] ;then 
-
-    gcloud container cluster create $GOOGLE_CLUSTER_NAME
+   echo "cluster doesn't exist"
 
 else
-    echo $CLUSTER_EXIST
+    echo "cluster is present or condition not exist failed"
 fi
 
