@@ -16,6 +16,6 @@ if [ "${EXISTING_CLUSTER}" != $GOOGLE_CLUSTER_NAME ] ;then
    gcloud container clusters create $GOOGLE_CLUSTER_NAME
 
 else
-    echo "cluster is present or condition not exist failed"
+    echo "cluster is present d"
 fi
 
