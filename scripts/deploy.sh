@@ -10,7 +10,7 @@ TEST="TOTO"
 echo $TEST
 echo $GOOGLE_CLUSTER_NAME
 echo "${CLUSTER_EXIST}"
-if [ "${CLUSTER_EXIST}" != $GOOGLE_CLUSTER_NAME] ;then 
+if [ "${CLUSTER_EXIST}" != $GOOGLE_CLUSTER_NAME ] ;then 
 
    echo "cluster doesn't exist"
 
