@@ -7,7 +7,7 @@ cd k8s
           gcloud --quiet config set project $GOOGLE_PROJECT_ID
           gcloud --quiet config set compute/zone $GOOGLE_COMPUTE_ZONE
           EXISTING_CLUSTER=$(gcloud container clusters list --format="value(name)" --filter="name=$GOOGLE_CLUSTER_NAME")
-          echo try to echo there
+          echo "existing cluster $EXISTING_CLUSTER"
           #   if [ "${EXISTING_CLUSTER}" != $GOOGLE_CLUSTER_NAME ]
           #   then
           #     # Create cluster if it doesn't already exist
