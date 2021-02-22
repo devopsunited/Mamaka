@@ -9,7 +9,7 @@ CLUSTER_EXIST =$(gcloud container clusters list --format="value(name)" --filter=
 TEST="TOTO"
 echo $TEST
 echo $GOOGLE_CLUSTER_NAME
-echo "cluster exist ? ${CLUSTER_EXIST}"
+echo "cluster exist  ${CLUSTER_EXIST}"
 if [ "${CLUSTER_EXIST}" != $GOOGLE_CLUSTER_NAME ] ;then 
 
    gcloud container clusters create hellocluster
