@@ -10,6 +10,7 @@ EXISTING_CLUSTER=$(gcloud container clusters list --format="value(name)" --filte
 TEST="TOTO"
 echo $TEST
 echo $EXISTING_CLUSTER
+echo salut max
 
 if [ "${EXISTING_CLUSTER}" != $GOOGLE_CLUSTER_NAME ] ;then 
 
